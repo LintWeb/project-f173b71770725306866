@@ -3,9 +3,611 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>project-f173b71770725306866</title>
+    <title>TinyTots | Premium Baby Essentials</title>
+    <meta name="description" content="Safe, soft, and sustainable baby products designed for your little one's comfort and joy.">
+    <style>
+        :root {
+            --primary: #8EB9B9;
+            --secondary: #F4D0D0;
+            --accent: #FFB347;
+            --text-dark: #2D3436;
+            --text-light: #636E72;
+            --white: #FFFFFF;
+            --bg-light: #F9FAFB;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #7AA8A8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(142, 185, 185, 0.3);
+        }
+
+        /* Header & Nav */
+        header {
+            background: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #E6F3F3 0%, #F9FAFB 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 6rem 0;
+                text-align: left;
+            }
+            .hero-flex {
+                display: flex;
+                align-items: center;
+                gap: 4rem;
+            }
+            .hero-content {
+                flex: 1;
+            }
+            .hero-image {
+                flex: 1;
+                display: block;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Categories */
+        .categories {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .category-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem 1rem;
+            text-align: center;
+            transition: 0.3s ease;
+            border: 1px solid #EEE;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--primary);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: #F0F7F7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .product-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            aspect-ratio: 1;
+            background: #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-desc {
+            color: #BDC3C7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #BDC3C7;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #3d464d;
+            padding-top: 2rem;
+            text-align: center;
+            color: #BDC3C7;
+            font-size: 0.9rem;
+        }
+
+        /* Accessibility: Focus state */
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
 </head>
 <body>
-    <!-- Blank white page -->
+
+    <header role="banner">
+        <div class="container">
+            <nav role="navigation" aria-label="Main Navigation">
+                <a href="/" class="logo" aria-label="TinyTots Home">
+                    <span>👶</span> TinyTots
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn" aria-label="Open navigation menu">
+                    ☰
+                </button>
+
+                <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+                    <a href="#" aria-label="Search">🔍</a>
+                    <a href="#" aria-label="Shopping Cart">🛒</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-flex">
+                <div class="hero-content">
+                    <h1>Only the best for your little star.</h1>
+                    <p>Discover our curated collection of organic clothing, safe toys, and premium essentials designed to nurture your baby's development and comfort.</p>
+                    <div class="hero-btns">
+                        <a href="#shop" class="btn btn-primary">Shop Collection</a>
+                    </div>
+                </div>
+                <div class="hero-image" style="background: var(--secondary); border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 8rem;">
+                    🧸
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Shop by Category</h2>
+                    <p>Everything your baby needs at every stage</p>
+                </div>
+                <div class="category-grid">
+                    <a href="#" class="category-card">
+                        <div class="category-icon">👕</div>
+                        <h3>Clothing</h3>
+                    </a>
+                    <a href="#" class="category-card">
+                        <div class="category-icon">🧸</div>
+                        <h3>Toys</h3>
+                    </a>
+                    <a href="#" class="category-card">
+                        <div class="category-icon">🍼</div>
+                        <h3>Feeding</h3>
+                    </a>
+                    <a href="#" class="category-card">
+                        <div class="category-icon">🛏️</div>
+                        <h3>Nursery</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="products" id="shop">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Essentials</h2>
+                    <p>Our most loved products by parents worldwide</p>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card">
+                        <div class="product-image" aria-hidden="true">🧵</div>
+                        <div class="product-info">
+                            <span class="product-tag">Organic Cotton</span>
+                            <h3 class="product-title">Soft Bamboo Sleepsuit</h3>
+                            <p class="product-price">$24.99</p>
+                            <button class="add-to-cart" aria-label="Add Soft Bamboo Sleepsuit to cart">Add to Cart</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 2 -->
+                    <article class="product-card">
+                        <div class="product-image" aria-hidden="true">🦒</div>
+                        <div class="product-info">
+                            <span class="product-tag">BPA Free</span>
+                            <h3 class="product-title">Natural Rubber Teether</h3>
+                            <p class="product-price">$12.50</p>
+                            <button class="add-to-cart" aria-label="Add Natural Rubber Teether to cart">Add to Cart</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 3 -->
+                    <article class="product-card">
+                        <div class="product-image" aria-hidden="true">🥣</div>
+                        <div class="product-info">
+                            <span class="product-tag">New Arrival</span>
+                            <h3 class="product-title">Silicone Feeding Set</h3>
+                            <p class="product-price">$35.00</p>
+                            <button class="add-to-cart" aria-label="Add Silicone Feeding Set to cart">Add to Cart</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About/Why Us -->
+        <section style="padding: 5rem 0; background-color: var(--secondary); color: var(--text-dark);">
+            <div class="container" style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
+                <div style="text-align: center;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Safety. Comfort. Joy.</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem;">We understand that parenthood is a journey. That's why every product in our shop is rigorously tested for safety and crafted with the softest materials to ensure your peace of mind.</p>
+                    <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; font-weight: 600;">
+                        <li>✨ 100% Non-Toxic</li>
+                        <li>🌿 Sustainably Sourced</li>
+                        <li>🚚 Free Global Shipping</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <span class="footer-logo">👶 TinyTots</span>
+                    <p class="footer-desc">Premium baby products designed with love and care for the next generation.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#shop">New Arrivals</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #BDC3C7;">Join our community for parenting tips and exclusive offers.</p>
+                    <form style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Email" aria-label="Email address" style="padding: 0.5rem; border-radius: 4px; border: none; flex-grow: 1;">
+                        <button type="submit" style="background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">Join</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> TinyTots Premium Baby Essentials. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Simple mobile menu toggle logic
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            const isVisible = navLinks.style.display === 'flex';
+            navLinks.style.display = isVisible ? 'none' : 'flex';
+            navLinks.style.flexDirection = isVisible ? '' : 'column';
+            navLinks.style.position = isVisible ? '' : 'absolute';
+            navLinks.style.top = isVisible ? '' : '70px';
+            navLinks.style.left = isVisible ? '' : '0';
+            navLinks.style.width = isVisible ? '' : '100%';
+            navLinks.style.background = isVisible ? '' : 'white';
+            navLinks.style.padding = isVisible ? '' : '2rem';
+            navLinks.style.boxShadow = isVisible ? '' : '0 10px 10px rgba(0,0,0,0.1)';
+        });
+    </script>
 </body>
 </html>
